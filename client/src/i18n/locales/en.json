@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "home": "Home",
+    "tour": "Tour",
+    "timeLeft": "Time Left",
+    "expired": "Expired"
+  },
+  "landing": {
+    "subtitle": "The Oldest Chinese Temple in Semarang",
+    "welcome": "Welcome to",
+    "title": "Sam Poo Kong",
+    "description": "Explore the beauty and history of Sam Poo Kong Temple with an interactive digital guide. Scan the QR code to begin your spiritual journey through one of the oldest and largest Chinese temples in Indonesia.",
+    "startTour": "Start Tour",
+    "scanQR": "Scan QR to Begin",
+    "history": "Founded in 15th Century",
+    "visitors": "Thousands of visitors/year",
+    "destinations": "5 Main Destinations",
+    "alreadyPaid": "Continue Your Tour",
+    "feature1Title": "Audio & Video Guide",
+    "feature1Desc": "Enjoy in-depth explanations of each historical point through interactive videos",
+    "feature2Title": "GPS Tracking",
+    "feature2Desc": "Automatically detect your location and display information about nearby destinations",
+    "feature3Title": "Multi Language",
+    "feature3Desc": "Available in Bahasa Indonesia, English, and 中文"
+  },
+  "payment": {
+    "title": "Digital Tour Ticket",
+    "subtitle": "Get full access to the digital guide for 24 hours",
+    "price": "Rp 15,000",
+    "duration": "Valid for 24 Hours",
+    "includes": "Includes:",
+    "include1": "Access to all 5 destinations",
+    "include2": "Video guide at each point",
+    "include3": "Multi-language descriptions",
+    "include4": "Automatic GPS tracking",
+    "payNow": "Pay Now",
+    "processing": "Processing...",
+    "secure": "Secure payment via Midtrans",
+    "success": "Payment successful! Redirecting to tour...",
+    "failed": "Payment failed. Please try again.",
+    "pending": "Payment pending. Please complete the payment."
+  },
+  "tour": {
+    "title": "Sam Poo Kong Tour",
+    "enableGPS": "Enable GPS",
+    "gpsActive": "GPS Active",
+    "gpsInactive": "GPS Inactive",
+    "searching": "Searching for nearby destinations...",
+    "nearbyFound": "Destination found!",
+    "noNearby": "No destinations within range",
+    "accuracy": "Accuracy",
+    "meters": "meters",
+    "visited": "Visited",
+    "nearby": "Nearby",
+    "locked": "Out of Range",
+    "progress": "Tour Progress",
+    "watchVideo": "Watch Video",
+    "description": "Description",
+    "distance": "Distance",
+    "permissionDenied": "GPS permission denied. Please enable it in your browser settings.",
+    "permissionPrompt": "Please allow location access for the best tour experience."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "back": "Back",
+    "close": "Close"
+  }
+}

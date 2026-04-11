@@ -1,0 +1,17 @@
+{
+  "name": "sampokong-tour",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sam Poo Kong Digital Tour Guide - Monorepo",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "install:all": "cd client && npm install && cd ../server && npm install",
+    "build": "cd client && npm run build",
+    "start:server": "cd server && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "tour": "Tour",
+    "timeLeft": "Sisa Waktu",
+    "expired": "Kedaluwarsa"
+  },
+  "landing": {
+    "subtitle": "Klenteng Tertua di Semarang",
+    "welcome": "Selamat Datang di",
+    "title": "Sam Poo Kong",
+    "description": "Jelajahi keindahan dan sejarah Klenteng Sam Poo Kong dengan panduan digital interaktif. Pindai kode QR untuk memulai perjalanan spiritual Anda melalui salah satu klenteng tertua dan terbesar di Indonesia.",
+    "startTour": "Mulai Tur",
+    "scanQR": "Pindai QR untuk Memulai",
+    "history": "Didirikan abad ke-15",
+    "visitors": "Ribuan pengunjung/tahun",
+    "destinations": "5 Destinasi Utama",
+    "alreadyPaid": "Lanjutkan Tur Anda",
+    "feature1Title": "Panduan Audio & Video",
+    "feature1Desc": "Nikmati penjelasan mendalam tentang setiap titik bersejarah melalui video interaktif",
+    "feature2Title": "Pelacakan GPS",
+    "feature2Desc": "Deteksi otomatis lokasi Anda dan tampilkan informasi destinasi terdekat",
+    "feature3Title": "Multi Bahasa",
+    "feature3Desc": "Tersedia dalam Bahasa Indonesia, English, dan 中文"
+  },
+  "payment": {
+    "title": "Tiket Masuk Tour Digital",
+    "subtitle": "Dapatkan akses penuh ke panduan digital selama 24 jam",
+    "price": "Rp 15.000",
+    "duration": "Berlaku 24 Jam",
+    "includes": "Termasuk:",
+    "include1": "Akses ke semua 5 destinasi",
+    "include2": "Video panduan di setiap titik",
+    "include3": "Deskripsi multi bahasa",
+    "include4": "Pelacakan GPS otomatis",
+    "payNow": "Bayar Sekarang",
+    "processing": "Memproses...",
+    "secure": "Pembayaran aman via Midtrans",
+    "success": "Pembayaran berhasil! Mengalihkan ke tur...",
+    "failed": "Pembayaran gagal. Silakan coba lagi.",
+    "pending": "Pembayaran tertunda. Silakan selesaikan pembayaran."
+  },
+  "tour": {
+    "title": "Tur Sam Poo Kong",
+    "enableGPS": "Aktifkan GPS",
+    "gpsActive": "GPS Aktif",
+    "gpsInactive": "GPS Tidak Aktif",
+    "searching": "Mencari destinasi terdekat...",
+    "nearbyFound": "Destinasi ditemukan!",
+    "noNearby": "Tidak ada destinasi dalam jangkauan",
+    "accuracy": "Akurasi",
+    "meters": "meter",
+    "visited": "Dikunjungi",
+    "nearby": "Di Dekat Sini",
+    "locked": "Di Luar Jangkauan",
+    "progress": "Progres Tur",
+    "watchVideo": "Tonton Video",
+    "description": "Deskripsi",
+    "distance": "Jarak",
+    "permissionDenied": "Izin GPS ditolak. Mohon aktifkan di pengaturan browser.",
+    "permissionPrompt": "Mohon izinkan akses lokasi untuk pengalaman tur terbaik."
+  },
+  "common": {
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "retry": "Coba Lagi",
+    "back": "Kembali",
+    "close": "Tutup"
+  }
+}

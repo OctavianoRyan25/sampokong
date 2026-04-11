@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "home": "首页",
+    "tour": "导览",
+    "timeLeft": "剩余时间",
+    "expired": "已过期"
+  },
+  "landing": {
+    "subtitle": "三宝垄最古老的华人寺庙",
+    "welcome": "欢迎来到",
+    "title": "三保公庙",
+    "description": "通过互动数字导览，探索三保公庙的美丽与历史。扫描二维码，开启您穿越印度尼西亚最古老、最大的华人寺庙之一的精神之旅。",
+    "startTour": "开始导览",
+    "scanQR": "扫码开始",
+    "history": "建于15世纪",
+    "visitors": "每年数千名游客",
+    "destinations": "5个主要目的地",
+    "alreadyPaid": "继续您的导览",
+    "feature1Title": "音视频导览",
+    "feature1Desc": "通过互动视频深入了解每个历史景点",
+    "feature2Title": "GPS追踪",
+    "feature2Desc": "自动检测您的位置并显示附近目的地信息",
+    "feature3Title": "多语言",
+    "feature3Desc": "提供印尼语、英语和中文版本"
+  },
+  "payment": {
+    "title": "数字导览门票",
+    "subtitle": "获得24小时数字导览完整访问权限",
+    "price": "Rp 15,000",
+    "duration": "有效期24小时",
+    "includes": "包含：",
+    "include1": "访问全部5个目的地",
+    "include2": "每个景点的视频导览",
+    "include3": "多语言描述",
+    "include4": "自动GPS追踪",
+    "payNow": "立即支付",
+    "processing": "处理中...",
+    "secure": "通过Midtrans安全支付",
+    "success": "支付成功！正在跳转到导览...",
+    "failed": "支付失败，请重试。",
+    "pending": "支付待处理，请完成支付。"
+  },
+  "tour": {
+    "title": "三保公庙导览",
+    "enableGPS": "启用GPS",
+    "gpsActive": "GPS已启用",
+    "gpsInactive": "GPS未启用",
+    "searching": "正在搜索附近的目的地...",
+    "nearbyFound": "发现目的地！",
+    "noNearby": "范围内没有目的地",
+    "accuracy": "精度",
+    "meters": "米",
+    "visited": "已参观",
+    "nearby": "附近",
+    "locked": "超出范围",
+    "progress": "导览进度",
+    "watchVideo": "观看视频",
+    "description": "描述",
+    "distance": "距离",
+    "permissionDenied": "GPS权限被拒绝，请在浏览器设置中启用。",
+    "permissionPrompt": "请允许位置访问以获得最佳导览体验。"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "发生错误",
+    "retry": "重试",
+    "back": "返回",
+    "close": "关闭"
+  }
+}
