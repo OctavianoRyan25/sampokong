@@ -384,6 +384,7 @@ button {
   background: var(--gradient-hero);
   position: relative;
   overflow: hidden;
+  background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png'); 
 }
 
 .hero::before {
@@ -511,6 +512,60 @@ button {
 .lantern-3 { bottom: 30%; left: 5%; animation-delay: 3s; font-size: 2.5rem; }
 .lantern-4 { top: 40%; right: 15%; animation-delay: 4.5s; font-size: 1.8rem; }
 .lantern-5 { bottom: 45%; right: 5%; animation-delay: 2s; }
+
+.hero-stats-minimal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; 
+  margin-top: 60px;
+  text-align: center; 
+  max-width: 600px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+
+.stat-number {
+  font-family: 'Poppins', sans-serif; 
+  font-weight: 800; 
+  font-size: 3rem; 
+  color: #ffd700; 
+  margin: 0; 
+  line-height: 1; 
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3); 
+}
+
+.stat-star {
+  font-size: 2.5rem; 
+  margin-left: 2px;
+  vertical-align: middle; 
+}
+
+.stat-label {
+  font-family: 'Poppins', sans-serif; 
+  font-weight: 400; 
+  font-size: 0.9rem; 
+  color: rgba(255, 255, 255, 0.8); 
+  margin-top: 8px; 
+  text-transform: capitalize; 
+}
+
+/* Responsif untuk Mobile */
+@media (max-width: 600px) {
+  .hero-stats-minimal {
+    grid-template-columns: 1fr; 
+    gap: 40px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem; 
+  }
+}
 
 /* ===== FEATURES SECTION ===== */
 .features-section {
