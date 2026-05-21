@@ -31,8 +31,8 @@ const DUMMY_DESTINATIONS = [
     description_cn:
       "三保公庙宏伟的正门，具有鲜明的中国建筑风格。大门装饰着象征好运和繁荣的龙凤图案。以明朝建筑风格建造，这座大门是游客探索这座历史悠久的寺庙建筑群的第一个入口。",
     video_url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    latitude: -6.9977938229105465,
-    longitude: 110.4083737649477,
+    latitude: -6.611567318175219,
+    longitude: 111.06558390996301,
     radius: 1000,
   },
   {
@@ -108,7 +108,11 @@ function TourPage() {
   const [accuracy, setAccuracy] = useState(null);
   const [visited, setVisited] = useState(getVisitedDestinations());
   const [loading, setLoading] = useState(true);
+  const [newlyUnlocked, setNewlyUnlocked] = useState(new Set());
   const watchIdRef = useRef(null);
+  const intervalRef = useRef(null);
+  // Tracks ids that were already nearby so we can detect newly unlocked ones
+  const prevNearbyIdsRef = useRef(new Set());
 
   // Load destinations from Firestore or use dummy data
   useEffect(() => {
@@ -152,6 +156,29 @@ function TourPage() {
         position.longitude,
         destinations,
       );
+
+      // Detect newly unlocked destinations (newly isNearby)
+      const currentNearbyIds = new Set(
+        updated.filter((d) => d.isNearby).map((d) => d.id),
+      );
+      const newIds = new Set(
+        [...currentNearbyIds].filter(
+          (id) => !prevNearbyIdsRef.current.has(id),
+        ),
+      );
+      if (newIds.size > 0) {
+        setNewlyUnlocked((prev) => new Set([...prev, ...newIds]));
+        // Clear the "newly unlocked" flag after 10s so re-visits don't re-autoplay
+        setTimeout(() => {
+          setNewlyUnlocked((prev) => {
+            const next = new Set(prev);
+            newIds.forEach((id) => next.delete(id));
+            return next;
+          });
+        }, 10000);
+      }
+      prevNearbyIdsRef.current = currentNearbyIds;
+
       setDestinations(updated);
     },
     [destinations],
@@ -166,17 +193,39 @@ function TourPage() {
     console.error("GPS Error:", error.message);
   }, []);
 
-  const startGPS = useCallback(() => {
-    setGpsStatus("searching");
-    const watchId = startTracking(handlePositionUpdate, handleGPSError);
-    watchIdRef.current = watchId;
+  // Helper to poll position once (used by interval)
+  const pollPosition = useCallback(() => {
+    if (!("geolocation" in navigator)) return;
+    navigator.geolocation.getCurrentPosition(
+      (pos) =>
+        handlePositionUpdate({
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude,
+          accuracy: pos.coords.accuracy,
+        }),
+      (err) => handleGPSError(err),
+      { enableHighAccuracy: true, timeout: 8000, maximumAge: 4000 },
+    );
   }, [handlePositionUpdate, handleGPSError]);
 
-  // Cleanup GPS on unmount
+  const startGPS = useCallback(() => {
+    setGpsStatus("searching");
+    // watchPosition for real-time updates
+    const watchId = startTracking(handlePositionUpdate, handleGPSError);
+    watchIdRef.current = watchId;
+    // Also poll every 5 seconds as a safety net / fallback interval
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(pollPosition, 5000);
+  }, [handlePositionUpdate, handleGPSError, pollPosition]);
+
+  // Cleanup GPS + interval on unmount
   useEffect(() => {
     return () => {
       if (watchIdRef.current !== null) {
         stopTracking(watchIdRef.current);
+      }
+      if (intervalRef.current !== null) {
+        clearInterval(intervalRef.current);
       }
     };
   }, []);
@@ -266,6 +315,7 @@ function TourPage() {
             index={index}
             isVisited={visited.includes(dest.id)}
             onView={handleMarkVisited}
+            autoExpand={newlyUnlocked.has(dest.id)}
           />
         ))}
       </div>

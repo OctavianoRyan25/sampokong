@@ -1,4 +1,18 @@
-function VideoPlayer({ url, title }) {
+import { useRef, useEffect } from 'react';
+
+function VideoPlayer({ url, title, autoplay }) {
+  const videoRef = useRef(null);
+
+  // For native <video>, imperatively trigger play() when autoplay becomes true
+  useEffect(() => {
+    if (autoplay && videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {
+        // Autoplay blocked by browser policy — user can press play manually
+      });
+    }
+  }, [autoplay]);
+
   if (!url) {
     return (
       <div className="destination-video">
@@ -16,10 +30,14 @@ function VideoPlayer({ url, title }) {
   );
 
   if (youtubeMatch) {
+    const params = new URLSearchParams({
+      rel: '0',
+      ...(autoplay ? { autoplay: '1', mute: '1' } : {}),
+    });
     return (
       <div className="destination-video">
         <iframe
-          src={`https://www.youtube.com/embed/${youtubeMatch[1]}?rel=0`}
+          src={`https://www.youtube.com/embed/${youtubeMatch[1]}?${params.toString()}`}
           title={title || 'Video'}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -28,10 +46,16 @@ function VideoPlayer({ url, title }) {
     );
   }
 
-  // Direct video URL
+  // Direct video URL (uploaded from server)
   return (
     <div className="destination-video">
-      <video controls preload="metadata">
+      <video
+        ref={videoRef}
+        controls
+        preload="metadata"
+        muted={!!autoplay}
+        autoPlay={!!autoplay}
+      >
         <source src={url} type="video/mp4" />
         Browser Anda tidak mendukung tag video.
       </video>

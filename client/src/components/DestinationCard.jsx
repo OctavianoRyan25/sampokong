@@ -1,11 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import VideoPlayer from './VideoPlayer';
 
-function DestinationCard({ destination, index, isVisited, onView }) {
+function DestinationCard({ destination, index, isVisited, onView, autoExpand }) {
   const { t, i18n } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const lang = i18n.language;
+
+  // Auto-expand and mark visited when proximity unlocks this destination
+  useEffect(() => {
+    if (autoExpand && (destination.isNearby || isVisited)) {
+      setExpanded(true);
+      if (destination.isNearby && !isVisited && onView) {
+        onView(destination.id);
+      }
+    }
+  }, [autoExpand]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const getName = () => {
     switch (lang) {
@@ -69,7 +79,7 @@ function DestinationCard({ destination, index, isVisited, onView }) {
 
       {expanded && (destination.isNearby || isVisited) && (
         <div className="destination-content">
-          <VideoPlayer url={destination.video_url} title={getName()} />
+          <VideoPlayer url={destination.video_url} title={getName()} autoplay={autoExpand} />
           <div className="destination-description">
             <p>{getDescription()}</p>
           </div>
