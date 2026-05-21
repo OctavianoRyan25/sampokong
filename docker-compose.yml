@@ -15,8 +15,8 @@ services:
       MIDTRANS_SERVER_KEY: ${MIDTRANS_SERVER_KEY}
       MIDTRANS_CLIENT_KEY: ${MIDTRANS_CLIENT_KEY}
       MIDTRANS_IS_PRODUCTION: ${MIDTRANS_IS_PRODUCTION:-false}
-    expose:
-      - "3001"
+    ports:
+      - "3001:3001"
     networks:
       - sampokong-network
     healthcheck:
@@ -46,7 +46,7 @@ services:
     container_name: sampokong-client
     restart: unless-stopped
     ports:
-      - "${APP_PORT:-80}:80"
+      - "${APP_PORT:-8080}:80"
     depends_on:
       server:
         condition: service_healthy
